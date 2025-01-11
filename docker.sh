@@ -26,9 +26,3 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 # Test if Docker works 
 sudo docker run hello-world
-
-# create Data Volume for portainer
-docker volume create portainer_data
-
-#install portainer on port 9443 with self-signed SSL cert
-docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
