@@ -1,12 +1,13 @@
 #!/bin/bash
 
-#install docker and portainer in one script
-#first delete old packages related
-
+#delete old Docker files for clean install
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd
+sudo rm /etc/apt/sources.list.d/docker.list
+sudo rm /etc/apt/keyrings/docker.asc
 
-# Add Docker's official GPG key:
-
+#add Repos
 # Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -21,8 +22,10 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 
-# install Docker
+#install Docker
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
-# Test if Docker works 
+#test install
 sudo docker run hello-world
+
+#End of script
