@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#install telerising
+#install telerising credits to takealug
 sudo docker run \
   -d \
   -e USER_ID="99" \
