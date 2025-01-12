@@ -1,4 +1,4 @@
-# docker
-just some selfmade scripts for easy installs, use at own risk.
+Just some scripts for lazy installs.
 
-git clone the repo, chmod 755 for the .sh you want to use.
+Clone repo and make .sh executable with "chmod 755"
+
