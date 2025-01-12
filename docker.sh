@@ -28,4 +28,9 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 #test install
 sudo docker run hello-world
 
-#End of script
+#End of Docker basic install, now install Portainer with fix Volume
+
+sudo docker volume create portainer_data
+
+#install Portainer always with "latest" because it just makes sense
+sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
